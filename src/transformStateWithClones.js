@@ -25,6 +25,8 @@ function transformStateWithClones(state, actions) {
       case 'clear':
         stateForChange = {};
         break;
+      default:
+        window.alert('unrecognized command');
     }
 
     resultOfEachAction.push(stateForChange);
