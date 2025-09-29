@@ -26,7 +26,7 @@ function transformStateWithClones(state, actions) {
         stateForChange = {};
         break;
       default:
-        window.alert('unrecognized command');
+        throw new Error('Unknown action type: ' + action.type);
     }
 
     resultOfEachAction.push(stateForChange);
@@ -39,7 +39,7 @@ function transformStateWithClones(state, actions) {
   }
 
   function removeProperties(action, initialState) {
-    const { keysToRemove } = action;
+    const { keysToRemove = [] } = action;
 
     keysToRemove.forEach((key) => delete initialState[key]);
   }
